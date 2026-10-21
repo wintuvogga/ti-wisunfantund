@@ -84,8 +84,11 @@
 #include "ti_wisunfan_features.h"
 #if defined(WISUN_CERT_CONFIG) && defined(LINUX_NANOSTACK)
 #include "cert/ti_wisunfan_config_cert.h"
+#define CONFIG_CHANNEL_PLAN 0
+#define CONFIG_CHANNEL_PLAN_ID 255
 #else
 #include "ti_wisunfan_config.h"
+#include "india_rf_profile.h"
 #endif
 
 #include "application.h"
@@ -205,8 +208,8 @@ configurable_props_t cfg_props = {
     .operating_class = CONFIG_OP_MODE_CLASS,
     .operating_mode = CONFIG_OP_MODE_ID,
     .fan_support_version = 1,
-    .config_chan_plan = 0,
-    .config_chan_plan_id = 255,
+	.config_chan_plan = CONFIG_CHANNEL_PLAN,
+	.config_chan_plan_id = CONFIG_CHANNEL_PLAN_ID,
     .hwaddr = CONFIG_INVALID_HWADDR,
 #ifdef WISUN_FAN_CORE_1_1
     .mdr_enable = 0 ,
